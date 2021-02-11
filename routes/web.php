@@ -17,6 +17,20 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+/**
+ * get into routes example
+ */
+Route::get('/test', function () {
+    return view('test', ['name' => request('name')]);
+});
+
+/** {post} => wild card */
+Route::get('/test/{post}', function ($post) {
+    return $post;
+});
+
+
+
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
